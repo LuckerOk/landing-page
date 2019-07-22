@@ -1,6 +1,7 @@
 (function() {
   const me = {};
   const form = document.querySelector('.form-container');
+  const formValidation = document.querySelector('.form__validation');
   let closeButton = null;
 
   const onClose = () => {
@@ -19,26 +20,22 @@
     form.classList.add('is-hidden');
   };
 
-  me.isValid = () => {
+  me.valid = () => {
     const requiredFields = document.querySelectorAll('[data-valid="required"]');
     const emailValue = document.querySelector('[data-email]').value;
     const numberValue = document.querySelector('[data-number]').value;
 
     if (!me.isAllCompleted(requiredFields)) {
-      console.log('Please fill in all required fields.');
-
-      return false;
+      return { error: true, message: 'Please fill in all required fields.'};
     } else if(!I.validation.isEmail(emailValue)) {
-      console.log('Email is not valid.');
-
-      return false;
+      return { error: true, message: 'Email is not valid.'};
     } else if(!I.validation.isNumber(numberValue)) {
-      console.log('Number is not valid.');
-
-      return false;
+      return { error: true, message: 'Number is not valid.'};
     }
 
-    return true
+    formValidation.classList.add('form__validation--success');
+
+    return { error: false, message: 'Correct!'};
   };
 
   me.isAllCompleted = data => {

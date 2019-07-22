@@ -2,6 +2,7 @@
   const openFormButton = document.querySelector('.arrow-down');
   const form = document.querySelector('.form');
   const nav = document.querySelector('.nav');
+  const formValidation = document.querySelector('.form__validation');
 
   if (openFormButton) {
     openFormButton.addEventListener('click', e => {
@@ -15,10 +16,12 @@
     form.addEventListener('submit', e => {
       e.preventDefault();
 
-      if (I.form.isValid()) {
-        console.log('All good.')
+      const { error, message } = I.form.valid();
+
+      if (error) {
+        formValidation.innerText = message;
       } else {
-        console.log('Is not valid.')
+        formValidation.innerText = message;
       }
     });
   }
