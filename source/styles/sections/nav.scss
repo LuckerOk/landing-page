@@ -1,0 +1,53 @@
+.nav {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 165px;
+
+  @media (max-width: 1030px) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 1000px) {
+    margin-bottom: 25px;
+  }
+
+  &__link {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    font-family: $ff-main-bold;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #424242;
+    transition: 0.3s;
+    font-size: 0.9rem;
+
+    &:hover,
+    &--active {
+      color: #de2b24;
+    }
+
+    &:after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 5px;
+      height: 5px;
+      margin-left: 15px;
+      border-radius: 50%;
+      background-color: #424242;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+
+    @media (max-width: 530px) {
+      display: block;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
