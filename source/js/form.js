@@ -26,16 +26,22 @@
     const numberValue = document.querySelector('[data-number]').value;
 
     if (!me.isAllCompleted(requiredFields)) {
-      return { error: true, message: 'Please fill in all required fields.'};
+      formValidation.classList.add('form__validation--error');
+
+      return 'Please fill in all required fields.';
     } else if(!I.validation.isEmail(emailValue)) {
-      return { error: true, message: 'Email is not valid.'};
+      formValidation.classList.add('form__validation--error');
+
+      return 'Email is not valid.';
     } else if(!I.validation.isNumber(numberValue)) {
-      return { error: true, message: 'Number is not valid.'};
+      formValidation.classList.add('form__validation--error');
+
+      return 'Number is not valid.';
     }
 
     formValidation.classList.add('form__validation--success');
 
-    return { error: false, message: 'Correct!'};
+    return 'Correct!';
   };
 
   me.isAllCompleted = data => {

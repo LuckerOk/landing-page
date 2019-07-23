@@ -16,13 +16,7 @@
     form.addEventListener('submit', e => {
       e.preventDefault();
 
-      const { error, message } = I.form.valid();
-
-      if (error) {
-        formValidation.innerText = message;
-      } else {
-        formValidation.innerText = message;
-      }
+      formValidation.innerText = I.form.valid();
     });
   }
 

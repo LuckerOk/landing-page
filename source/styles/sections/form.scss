@@ -89,7 +89,10 @@
     margin-bottom: 10px;
     font-size: 0.9375rem;
     line-height: 1.5;
-    color: #e55650;
+
+    &--error {
+      color: #e55650;
+    }
 
     &--success {
       color: #3CB371;
